@@ -10,6 +10,6 @@ defmodule Detsview do
     {:ok, table} = fname |> String.to_atom |> :dets.open_file
     data = :dets.foldl(fn item, acc -> [item|acc] end, [], table)
     :dets.close(table)
-    IO.inspect data
+    IO.inspect(data, limit: :infinity)
   end
 end
